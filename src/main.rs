@@ -11,24 +11,6 @@ fn line_point_distance(l1: Point, l2: Point, p: Point) -> f32 {
     return distance;
 }
 
-//fn max_line_point_distance(points: &Vec<Point>) -> (usize, f32) {
-    //println!("DISTANCE FOR POINTS");
-    //print_vec(&points);
-    //println!("");
-    //let mut dmax = 0.0;
-    //let mut index = 0;
-    //let l1 = points[0];
-    //let l2 = points[points.len()-1];
-    //for i in 1..points.len() {
-        //let d = line_point_distance(l1, l2, points[i]);
-        //if d > dmax {
-            //dmax = d;
-            //index = i;
-        //}
-    //}
-    //return (index, dmax);
-//}
-
 fn print_vec(v: &Vec<Point>) {
     for p in v {
         println!("({}, {})", p.x, p.y);
@@ -40,13 +22,6 @@ fn douglas_peucker(points: Vec<Point>, eps: f32) -> Vec<Point> {
     print_vec(&points);
     println!("");
     let mut result_list: Vec<Point> = vec![];
-    //if points.len() <= 2 {
-        //result_list = points;
-        //println!("DONE!");
-        //return result_list;
-    //}
-    //let (index, d) = max_line_point_distance(points[0], points[points.len()-1], points[1 as usize .. (points.len() as usize) - 1].to_vec());
-    //let (index, d) = max_line_point_distance(&points);
     let mut dmax = 0.0;
     let mut index = 0;
     let mut d = 0.0;
@@ -70,9 +45,6 @@ fn douglas_peucker(points: Vec<Point>, eps: f32) -> Vec<Point> {
         result_list.push(points[0]);
         result_list.push(points[points.len() - 1]);
     }
-    println!("DONE");
-    println!("length of result list: {}", result_list.len());
-    println!("RETURNING RESULT LIST");
     print_vec(&result_list);
     return result_list;
 }
